@@ -1,4 +1,4 @@
-Script to list all MU active in PA for a tenant in the timerange specified. Timerange is specified in hours (default value is 1 hr). The MU who  have been active in that time range are displayed. We could filter it based on a particular use. Not: the filter for location is not working. Output is displayed at a stdout, json and csv files for the customers to ingest the sata in their enviroment.
+Script to list all MU active in PA for a tenant in the timerange specified. Timerange is specified in hours (default value is 1 hr). The MU who  have been active in that time range are displayed. We could filter it based on a particular use. Not: the filter for location is not working. Output is displayed at a stdout, json and csv files for the customers to ingest the data in their enviroment.
 
 
 
