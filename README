@@ -1,0 +1,53 @@
+Script to list all MU active in PA for a tenant in the timerange specified. Timerange is specified in hours (default value is 1 hr). The MU who  have been active in that time range are displayed. We could filter it based on a particular use. Not: the filter for location is not working. Output is displayed at a stdout, json and csv files for the customers to ingest the sata in their enviroment.
+
+
+
+(base) dsubashchand@M-JY4VCQYQ64 MU status % ./MU_Status.py --help
+usage: MU_Status.py [-h] [-t1 T1SECRET] [-option OPTION] [-user USER] [-loc LOCATION]
+                    [-timerange TIMERANGE]
+
+Checking MU Status
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -t1 T1SECRET, --T1Secret T1SECRET
+                        Input secret file in .yml format for the tenant(T1)
+  -option OPTION, --Option OPTION
+                        user/loc/all to query based on user or location
+  -user USER, --User USER
+                        Given a user, check the location from where the user is logged in
+  -loc LOCATION, --Location LOCATION
+                        Given a User location country, list the mobile Users
+  -timerange TIMERANGE, --TimeRange TIMERANGE
+                        Time range in hours for which data needs to be fetched
+(base) dsubashchand@M-JY4VCQYQ64 MU status % ./MU_Status.py 
+--------------------------------
+Script Execution Progress: 
+--------------------------------
+Login to TSG ID 1228584868 successful
++---------------------+---------------+---------------------+-----------------------+
+| GP-User-Name        | User Location | PA Location         | User Country Location |
++=====================+===============+=====================+=======================+
+| tony@panwsase.com   | Brisbane      | Australia Southeast | Australia             |
++---------------------+---------------+---------------------+-----------------------+
+| alice1@panwsase.com | Zimmerman     | US Central          | United States         |
++---------------------+---------------+---------------------+-----------------------+
+(base) dsubashchand@M-JY4VCQYQ64 MU status % ./MU_Status.py -t1 T1-secret.yml -user "tony@panwsase.com" -option user
+--------------------------------
+Script Execution Progress: 
+--------------------------------
+Login to TSG ID 1228584868 successful
++-------------------+---------------+---------------------+-----------------------+
+| GP-User-Name      | User Location | PA Location         | User Country Location |
++===================+===============+=====================+=======================+
+| tony@panwsase.com | Brisbane      | Australia Southeast | Australia             |
++-------------------+---------------+---------------------+-----------------------+
+(base) dsubashchand@M-JY4VCQYQ64 MU status % ./MU_Status.py -t1 T1-secret.yml -user "alice1@panwsase.com" -option user
+--------------------------------
+Script Execution Progress: 
+--------------------------------
+Login to TSG ID 1228584868 successful
++---------------------+---------------+-------------+-----------------------+
+| GP-User-Name        | User Location | PA Location | User Country Location |
++=====================+===============+=============+=======================+
+| alice1@panwsase.com | Zimmerman     | US Central  | United States         |
